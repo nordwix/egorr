@@ -1,24 +1,52 @@
-# Compiled class file
-*.class
+#Завдання 1
+public class MathCalculations {
+    public static void main(String[] args) {
 
-# Log file
-*.log
+        double a = 2.953;
+        double b = 0.254;
+        double c = 0.5;
 
-# BlueJ files
-*.ctxt
+        double x = Math.pow(2, Math.pow(b, 4)) + Math.pow(3, a) * b;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+        double y = (Math.abs(a - b) * (1 + Math.pow(Math.sin(c), 2)) / (a + b)) 
+                   + (Math.exp(a - b) + a / 2);
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+        System.out.println("Value of x: " + x);
+        System.out.println("Value of y: " + y);
+    }
+}
+#Завдання 2
+import java.util.Scanner;
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+public class PiecewiseFunction {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter value for a: ");
+        double a = scanner.nextDouble();
+        
+        System.out.print("Enter value for b: ");
+        double b = scanner.nextDouble();
+        
+        System.out.print("Enter value for x: ");
+        double x = scanner.nextDouble();
+        
+        double fx;
+        if (x >= 0 && x < 9) {
+            fx = Math.cos(x);
+        } else if (x == 9) {
+            fx = 3 * Math.exp(a * x) + 1;
+        } else if (x > 9 && x < 11) {
+            fx = Math.log(b * x - 1);
+        } else {
+            System.out.println("x is out of the defined range.");
+            scanner.close();
+            return;
+        }
+        
+        System.out.println("f(x) = " + fx);
+        
+        scanner.close();
+    }
+}
+
