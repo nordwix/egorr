@@ -1,51 +1,31 @@
-#Завдання 1
-public class MathCalculations {
+import java.util.Random;
+
+public class Task1 {
     public static void main(String[] args) {
+        int[] array = new int[20]; 
+        Random random = new Random();
 
-        double a = 2.953;
-        double b = 0.254;
-        double c = 0.5;
-
-        double x = Math.pow(2, Math.pow(b, 4)) + Math.pow(3, a) * b;
-
-        double y = (Math.abs(a - b) * (1 + Math.pow(Math.sin(c), 2)) / (a + b)) 
-                   + (Math.exp(a - b) + a / 2);
-
-        System.out.println("Value of x: " + x);
-        System.out.println("Value of y: " + y);
-    }
-}
-#Завдання 2
-import java.util.Scanner;
-
-public class PiecewiseFunction {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter value for a: ");
-        double a = scanner.nextDouble();
-        
-        System.out.print("Enter value for b: ");
-        double b = scanner.nextDouble();
-        
-        System.out.print("Enter value for x: ");
-        double x = scanner.nextDouble();
-        
-        double fx;
-        if (x >= 0 && x < 9) {
-            fx = Math.cos(x);
-        } else if (x == 9) {
-            fx = 3 * Math.exp(a * x) + 1;
-        } else if (x > 9 && x < 11) {
-            fx = Math.log(b * x - 1);
-        } else {
-            System.out.println("x is out of the defined range.");
-            scanner.close();
-            return;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(100); 
         }
-        
-        System.out.println("f(x) = " + fx);
-        
-        scanner.close();
+
+        int evenCount = 0;
+        int oddCount = 0;
+
+        for (int num : array) {
+            if (num % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+
+        System.out.println("Масив: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println("\nКількість парних чисел: " + evenCount);
+        System.out.println("Кількість непарних чисел: " + oddCount);
     }
 }
+
